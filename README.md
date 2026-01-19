@@ -1,135 +1,119 @@
-# Turborepo starter
+# 🚀 Frontend Monorepo with Shared UI (Turborepo)
 
-This Turborepo starter is maintained by the Turborepo core team.
+A modern **frontend monorepo** setup built using **Turborepo**, where multiple frontend applications share a **single reusable UI component library**.  
+This project demonstrates **real-world frontend architecture**, scalability, and clean UI practices.
 
-## Using this example
+---
 
-Run the following command:
+## ✨ Project Overview
 
-```sh
-npx create-turbo@latest
-```
+This monorepo contains two independent frontend applications:
 
-## What's inside?
+- **Marketing App** – Public-facing landing page  
+- **Dashboard App** – Internal admin-style application  
 
-This Turborepo includes the following packages/apps:
+Both applications **share a common UI package**, proving how reusable components can be managed efficiently in a large-scale frontend system.
 
-### Apps and Packages
+> 💡 The goal of this project is to showcase **industry-level frontend architecture**, not just UI.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+---
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## 🏗️ Monorepo Structure
+frontend-monorepo/
+│
+├── apps/
+│ ├── marketing/ → Marketing website (Next.js)
+│ └── dashboard/ → Dashboard application (Next.js)
+│
+├── packages/
+│ ├── ui/ → Shared UI components (Button, etc.)
+│ ├── eslint-config/ → Shared ESLint configuration
+│ └── typescript-config → Shared TypeScript config
+│
+├── turbo.json
+├── package.json
+└── README.md
 
-### Utilities
 
-This Turborepo has some additional tools already setup for you:
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+---
 
-### Build
+## 🧩 Shared UI Package
 
-To build all apps and packages, run the following command:
+The **UI package** contains reusable components used across both apps.
 
-```
-cd my-turborepo
+### Example:
+- `Button` component  
+- Same styling, same behavior  
+- Used in **Marketing** and **Dashboard** without duplication
 
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
+This ensures:
+- Consistent UI
+- Faster development
+- Easier maintenance
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
+---
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+## 🖥️ Applications
 
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+### 🌐 Marketing App
+- Clean landing page
+- CTA buttons
+- Demonstrates shared UI usage
+- Runs independently
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+📍 **URL:** `http://localhost:3000`
 
-### Develop
+---
 
-To develop all apps and packages, run the following command:
+### 📊 Dashboard App
+- Admin-style layout
+- Stats cards & actions
+- Premium SaaS-like UI
+- Uses same shared Button component
 
-```
-cd my-turborepo
+📍 **URL:** `http://localhost:3001`
 
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+---
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+## 🛠️ Tech Stack
 
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+- **Next.js** – App Router
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **Turborepo**
+- **ESLint (shared config)**
 
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
+---
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
+## ⚡ Why Monorepo?
 
-### Remote Caching
+This setup reflects how **real companies** structure frontend systems.
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+### Benefits:
+- Code reusability
+- Single source of truth for UI
+- Faster builds with Turborepo caching
+- Clean separation of concerns
+- Easy scalability
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+> Marketing and Dashboard are **separate apps**, not separate files — exactly how production systems work.
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+---
 
-```
-cd my-turborepo
+## ▶️ How to Run Locally
 
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
+```bash
+# Install dependencies
+npm install
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
+# Run all apps in parallel
+npm run dev
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+Ports:
 
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
+Marketing → http://localhost:3000
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+Dashboard → http://localhost:3001
