@@ -18,22 +18,6 @@ Both applications **share a common UI package**, proving how reusable components
 
 ---
 
-## 🏗️ Monorepo Structure
-
-```text
-frontend-monorepo/
-├── apps/
-│   ├── marketing/        # Marketing website (Next.js)
-│   └── dashboard/        # Dashboard application (Next.js)
-│
-├── packages/
-│   ├── ui/               # Shared UI components (Button, Modal, etc.)
-│   ├── eslint-config/    # Shared ESLint configuration
-│   └── typescript-config/# Shared TypeScript configuration
-│
-├── turbo.json            # Turborepo pipeline configuration
-├── package.json          # Root dependencies & scripts
-└── README.md             # Project documentation
 
 
 
@@ -118,3 +102,20 @@ Ports:
 Marketing → http://localhost:3000
 
 Dashboard → http://localhost:3001
+
+## 🏗️ Monorepo Structure
+
+```text
+frontend-monorepo/
+├── apps/
+│   ├── marketing/        # Marketing website (Next.js)
+│   └── dashboard/        # Dashboard application (Next.js)
+│
+├── packages/
+│   ├── ui/               # Shared UI components (Button, Modal, etc.)
+│   ├── eslint-config/    # Shared ESLint configuration
+│   └── typescript-config/# Shared TypeScript configuration
+│
+├── turbo.json            # Turborepo pipeline configuration
+├── package.json          # Root dependencies & scripts
+└── README.md             # Project documentation
